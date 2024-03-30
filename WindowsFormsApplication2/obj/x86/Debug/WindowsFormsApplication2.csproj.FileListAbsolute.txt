@@ -1,0 +1,25 @@
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Form1.resources
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Properties.Resources.resources
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.exe
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.pdb
+C:\Users\Cardinal\Documents\Visual Studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.EleveAdd.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.exe
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.pdb
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Eleve.EleveMain.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Form1.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Properties.Resources.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Instructeur.InstructeurMain.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\Debug\DB.accdb
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Eleve.EleveShow.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\WindowsFormsApplication2.Eleve.EleveAdd.resources
