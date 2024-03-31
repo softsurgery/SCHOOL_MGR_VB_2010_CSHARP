@@ -29,9 +29,10 @@ namespace GestionEleve.Eleve
             Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score, eleve.ID_ELEVE);
         }
 
-        public List<EleveModel> GetAllEleves(){
+        public List<EleveModel> GetAllEleves(string key="")
+        {
             List<EleveModel> eleves = new List<EleveModel>();
-            string query = "SELECT * FROM Eleve";
+            string query = "SELECT * FROM Eleve WHERE NOM_COMPLET LIKE @key";
             using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))
             {
                 using (OleDbCommand command = new OleDbCommand(query, connection))
@@ -39,10 +40,9 @@ namespace GestionEleve.Eleve
                     try
                     {
                         connection.Open();
+                        command.Parameters.AddWithValue("@key", "%" + key + "%");
                         OleDbDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            Console.Write(reader.GetString(1));
+                        while (reader.Read()){
                             EleveModel eleve = new EleveModel(
                                 reader.GetInt16(0),
                                 reader.GetString(1),

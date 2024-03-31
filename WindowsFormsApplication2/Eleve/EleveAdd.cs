@@ -62,7 +62,7 @@ namespace GestionEleve.Eleve
             if (nomCompletErreur.Text == "OK" &&
                 dateDeNaissanceErreur.Text == "OK" &&
                 dateDinscriptionErreur.Text == "OK"){
-                EleveModel eleve = new EleveModel(-1,nomComplet.Text,dob.Text,dateInscription.Text,10);
+                EleveModel eleve = new EleveModel(-1,nomComplet.Text,dob.Text,dateInscription.Text,5);
                 controller.AddEleve(eleve);
                 fetchAndDisplayDataDelegate();
                 Console.WriteLine("Added Eleve Succesfully");

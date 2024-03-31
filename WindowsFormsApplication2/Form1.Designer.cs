@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.ElevePanal = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.button6);
             this.splitContainer1.Panel1.Controls.Add(this.button5);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
@@ -74,14 +76,14 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1095, 302);
-            this.splitContainer1.SplitterDistance = 135;
+            this.splitContainer1.Size = new System.Drawing.Size(1270, 372);
+            this.splitContainer1.SplitterDistance = 156;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(9, 228);
+            this.button6.Location = new System.Drawing.Point(18, 258);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
@@ -92,7 +94,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(9, 187);
+            this.button5.Location = new System.Drawing.Point(18, 217);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 28);
@@ -102,7 +104,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(9, 149);
+            this.button4.Location = new System.Drawing.Point(18, 179);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
@@ -112,7 +114,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(9, 110);
+            this.button3.Location = new System.Drawing.Point(18, 140);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
@@ -122,7 +124,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(9, 73);
+            this.button2.Location = new System.Drawing.Point(18, 103);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
@@ -133,7 +135,7 @@
             // 
             // ElevePanal
             // 
-            this.ElevePanal.Location = new System.Drawing.Point(9, 34);
+            this.ElevePanal.Location = new System.Drawing.Point(18, 64);
             this.ElevePanal.Margin = new System.Windows.Forms.Padding(4);
             this.ElevePanal.Name = "ElevePanal";
             this.ElevePanal.Size = new System.Drawing.Size(100, 28);
@@ -147,24 +149,34 @@
             this.panel1.Location = new System.Drawing.Point(4, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(947, 294);
+            this.panel1.Size = new System.Drawing.Size(1101, 367);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Menu";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 420);
+            this.ClientSize = new System.Drawing.Size(1287, 492);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.windowTitle);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1120, 465);
             this.MinimumSize = new System.Drawing.Size(1120, 465);
             this.Name = "Form1";
             this.Text = "Gestion Ecole";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -184,6 +196,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
 
 
 

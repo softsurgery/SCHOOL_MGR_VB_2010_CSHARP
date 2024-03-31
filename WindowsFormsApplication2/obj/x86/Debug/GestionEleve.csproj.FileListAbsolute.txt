@@ -14,3 +14,4 @@ C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.exe
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.pdb
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Eleve.EleveModify.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Utils.RatingControl.resources

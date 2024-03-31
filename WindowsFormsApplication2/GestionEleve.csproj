@@ -114,9 +114,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\colors.cs" />
+    <Compile Include="colors.cs" />
     <Compile Include="Utils\Connection.cs" />
+    <Compile Include="Utils\RatingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\RatingControl.Designer.cs">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\StaticMethods.cs" />
+    <Compile Include="Utils\Transform.cs" />
     <EmbeddedResource Include="Eleve\EleveMain.resx">
       <DependentUpon>EleveMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +152,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Utils\RatingControl.resx">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
