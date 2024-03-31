@@ -30,11 +30,11 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nomComplet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dob = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateInscription = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // button1
@@ -57,12 +57,13 @@
             this.label1.Text = "Nom Complet";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // nomComplet
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 22);
-            this.textBox1.TabIndex = 2;
+            this.nomComplet.Location = new System.Drawing.Point(26, 51);
+            this.nomComplet.Name = "nomComplet";
+            this.nomComplet.Size = new System.Drawing.Size(229, 22);
+            this.nomComplet.TabIndex = 2;
+            this.nomComplet.TextChanged += new System.EventHandler(this.nomComplet_TextChanged);
             // 
             // label2
             // 
@@ -74,12 +75,13 @@
             this.label2.Text = "Date de Naissance";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dateTimePicker1
+            // dob
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(26, 110);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(229, 22);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dob.Location = new System.Drawing.Point(26, 110);
+            this.dob.Name = "dob";
+            this.dob.Size = new System.Drawing.Size(229, 22);
+            this.dob.TabIndex = 5;
+            this.dob.ValueChanged += new System.EventHandler(this.dob_ValueChanged);
             // 
             // label3
             // 
@@ -91,23 +93,24 @@
             this.label3.Text = "Date d\'inscription";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dateTimePicker2
+            // dateInscription
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(26, 180);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(229, 22);
-            this.dateTimePicker2.TabIndex = 7;
+            this.dateInscription.Location = new System.Drawing.Point(26, 180);
+            this.dateInscription.Name = "dateInscription";
+            this.dateInscription.Size = new System.Drawing.Size(229, 22);
+            this.dateInscription.TabIndex = 7;
+            this.dateInscription.ValueChanged += new System.EventHandler(this.dateInscription_ValueChanged);
             // 
             // EleveAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 291);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateInscription);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dob);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nomComplet);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "EleveAdd";
@@ -122,11 +125,11 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nomComplet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dob;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateInscription;
 
     }
 }

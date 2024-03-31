@@ -53,6 +53,7 @@
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Eleve\EleveControlleur.cs" />
+    <Compile Include="Eleve\EleveModel.cs" />
     <Compile Include="Eleve\EleveShow.cs">
       <SubType>UserControl</SubType>
     </Compile>
