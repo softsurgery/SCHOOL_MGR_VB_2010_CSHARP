@@ -16,9 +16,8 @@ namespace GestionEleve.Eleve
         }
 
         public void AddEleve(EleveModel eleve){
-            string query = "INSERT INTO Eleve (ID_ELEVE, NOMCOMPLET, DATENAISSANCE, DATEINSCRIPTION, SCORE) " +
-                          "VALUES (?, ?, ?, ?, 10)";
-            Connection.ExecuteNonQuery(query, maxId + 1 , eleve.nomComplet, eleve.dateNaissance, eleve.dateInscription);
+            string query = "INSERT INTO Eleve (ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_INSCRIPTION, SCORE) VALUES (?, ?, ?, ?, ?)";
+            Connection.ExecuteNonQuery(query, maxId + 1 , eleve.nomComplet, eleve.dateNaissance, eleve.dateInscription,eleve.score);
         }
 
 

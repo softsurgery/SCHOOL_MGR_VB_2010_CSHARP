@@ -12,5 +12,14 @@ namespace GestionEleve.Eleve
         public String dateNaissance { get; set; }
         public String dateInscription { get; set; }
         public int score { get; set; }
+
+        public EleveModel(int id, string nomComplet, string dateNaissance, string dateInscription, int score)
+        {
+            this.ID = id;
+            this.nomComplet = nomComplet;
+            this.dateNaissance = dateNaissance;
+            this.dateInscription = dateInscription;
+            this.score = score;
+        }
     }
 }

@@ -22,6 +22,11 @@ namespace GestionEleve.Eleve
             dataGrid.AllowUserToDeleteRows = false;
             dataGrid.ReadOnly = true;
             dataGrid.AutoResizeColumns();
+            dataGrid.Columns[0].HeaderText = "Identifiant";
+            dataGrid.Columns[1].HeaderText = "Nom Complet";
+            dataGrid.Columns[2].HeaderText = "Date de Naissance";
+            dataGrid.Columns[3].HeaderText = "Date d'Inscription";
+            dataGrid.Columns[4].HeaderText = "Score";
         }
 
         private void button1_Click(object sender, EventArgs e)
