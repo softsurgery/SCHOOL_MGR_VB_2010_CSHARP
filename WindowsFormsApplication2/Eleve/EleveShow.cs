@@ -11,9 +11,14 @@ namespace GestionEleve.Eleve
 {
     public partial class EleveShow : UserControl
     {
-        public EleveShow()
-        {
+        private EleveControlleur controller;
+
+        public EleveShow(){
             InitializeComponent();
+
+            //controller
+            controller = new EleveControlleur();
+
         }
 
         private void EleveShow_Load(object sender, EventArgs e)
@@ -27,12 +32,21 @@ namespace GestionEleve.Eleve
             dataGrid.Columns[2].HeaderText = "Date de Naissance";
             dataGrid.Columns[3].HeaderText = "Date d'Inscription";
             dataGrid.Columns[4].HeaderText = "Score";
+            FetchAndDisplayData();
         }
+
+        private void FetchAndDisplayData(){
+            List<EleveModel> eleves = controller.GetAllEleves();
+            dataGrid.DataSource = eleves;
+        }
+
+        public delegate void FetchAndDisplayDataDelegate();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form eleveAdd = new EleveAdd();
+            Form eleveAdd = new EleveAdd(FetchAndDisplayData);
             eleveAdd.Show();
+            FetchAndDisplayData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

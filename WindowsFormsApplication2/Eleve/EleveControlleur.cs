@@ -12,59 +12,56 @@ namespace GestionEleve.Eleve
 
         public EleveControlleur(){
             maxId = this.GetMaxId();
-            Console.WriteLine(maxId);
         }
 
         public void AddEleve(EleveModel eleve){
             string query = "INSERT INTO Eleve (ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_INSCRIPTION, SCORE) VALUES (?, ?, ?, ?, ?)";
-            Connection.ExecuteNonQuery(query, maxId + 1 , eleve.nomComplet, eleve.dateNaissance, eleve.dateInscription,eleve.score);
+            Connection.ExecuteNonQuery(query, maxId + 1, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score);
         }
 
 
-        public void ModifyEleve(EleveModel eleve)
-        {
+        public void ModifyEleve(EleveModel eleve){
             string query = "UPDATE Eleve SET nomComplet = ?, " +
                            "dateNaissance = ?, " +
                            "dateInscription = ?, " +
                            "score = ? " +
                            "WHERE ID_ELEVE = ?";
-            Connection.ExecuteNonQuery(query, eleve.nomComplet, eleve.dateNaissance, eleve.dateInscription, eleve.score, eleve.ID);
+            Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score, eleve.ID_ELEVE);
         }
 
-        //public List<EleveModel> GetAllEleves()
-        //{
-        //    List<EleveModel> eleves = new List<EleveModel>();
-        //    string query = "SELECT * FROM Eleve";
-        //    using (OleDbConnection connection = new OleDbConnection(""))
-        //    {
-        //        using (OleDbCommand command = new OleDbCommand(query, connection))
-        //        {
-        //            try
-        //            {
-        //                connection.Open();
-        //                OleDbDataReader reader = command.ExecuteReader();
-        //                while (reader.Read())
-        //                {
-        //                    EleveModel eleve = new EleveModel
-        //                    {
-        //                        ID = reader.GetInt32(0),
-        //                        nomComplet = reader.GetString(1),
-        //                        dateNaissance = reader.GetString(2),
-        //                        dateInscription = reader.GetString(3),
-        //                        score = reader.GetInt32(4)
-        //                    };
-        //                    eleves.Add(eleve);
-        //                }
-        //                reader.Close();
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                Console.WriteLine("Error fetching students: " + ex.Message);
-        //            }
-        //        }
-        //    }
-        //    return eleves;
-        //}
+        public List<EleveModel> GetAllEleves(){
+            List<EleveModel> eleves = new List<EleveModel>();
+            string query = "SELECT * FROM Eleve";
+            using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))
+            {
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Console.Write(reader.GetString(1));
+                            EleveModel eleve = new EleveModel(
+                                reader.GetInt16(0),
+                                reader.GetString(1),
+                                reader.GetDateTime(2).ToString("dd/MM/yyyy"),
+                                reader.GetDateTime(3).ToString("dd/MM/yyyy"),
+                                reader.GetInt32(4)
+                            );
+                            eleves.Add(eleve);
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error fetching students: " + ex.Message);
+                    }
+                }
+            }
+            return eleves;
+        }
 
         public void DeleteEleve(int id)
         {

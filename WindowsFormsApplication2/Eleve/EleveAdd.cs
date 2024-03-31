@@ -12,10 +12,12 @@ namespace GestionEleve.Eleve
 {
     public partial class EleveAdd : Form{
         private EleveControlleur controller;
+        private GestionEleve.Eleve.EleveShow.FetchAndDisplayDataDelegate fetchAndDisplayDataDelegate;
 
-        public EleveAdd()
+        public EleveAdd(GestionEleve.Eleve.EleveShow.FetchAndDisplayDataDelegate fetchAndDisplayDataDelegate)
         {
             InitializeComponent();
+            this.fetchAndDisplayDataDelegate = fetchAndDisplayDataDelegate;
 
             //controller
             controller = new EleveControlleur();
@@ -62,6 +64,7 @@ namespace GestionEleve.Eleve
                 dateDinscriptionErreur.Text == "OK"){
                 EleveModel eleve = new EleveModel(-1,nomComplet.Text,dob.Text,dateInscription.Text,10);
                 controller.AddEleve(eleve);
+                fetchAndDisplayDataDelegate();
                 Console.WriteLine("Added Eleve Succesfully");
             }
             
