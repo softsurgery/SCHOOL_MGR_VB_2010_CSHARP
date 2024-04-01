@@ -145,6 +145,7 @@ namespace GestionEleve.Eleve
 
                 if (result == DialogResult.Yes){
                     controller.DeleteEleve(ID_ELEVE);
+                    ID_ELEVE = -1;
                     nomComplet.Text = "";
                     dateINS.Text = "";
                     dob.Text = "";
@@ -171,6 +172,46 @@ namespace GestionEleve.Eleve
                 SCORE--;
                 giveRate(SCORE);
             }
+        }
+
+        private void modifier_Click(object sender, EventArgs e)
+        {
+            if (ID_ELEVE != -1)
+            {
+
+                Erreur.ForeColor = colors.red;
+                int age = StaticMethods.CalculateDateDifferenceInYears(dob.Text, StaticMethods.GetTodayDate());
+                int insdiff = StaticMethods.CalculateDateDifferenceInYears(dateINS.Text, StaticMethods.GetTodayDate());
+
+                if (nomComplet.Text == "") Erreur.Text = "Le nom doit etre definie";
+                else if (!nomComplet.Text.Contains(" ")) Erreur.Text = "le nom est incorrect";
+                else if (age < 14) Erreur.Text = "La date est invalide";
+                else if (age - insdiff < 14) Erreur.Text = "La date est invalide";
+                else
+                {
+                    EleveModel eleve = new EleveModel(ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_DINSCRIPTION, SCORE);
+                    controller.ModifyEleve(eleve);
+                    Erreur.ForeColor = colors.green;
+                    Erreur.Text = "Modification Reussite";
+                    FetchAndDisplayData();
+                };
+            }
+        }
+
+        private void nomComplet_TextChanged(object sender, EventArgs e)
+        {
+            NOM_COMPLET = nomComplet.Text;
+        }
+
+        private void dob_ValueChanged(object sender, EventArgs e)
+        {
+            DATE_DE_NAISSANCE = dob.Text;
+        }
+
+        private void dateINS_ValueChanged(object sender, EventArgs e)
+        {
+            DATE_DINSCRIPTION = dateINS.Text;
+
         }
     }
 }

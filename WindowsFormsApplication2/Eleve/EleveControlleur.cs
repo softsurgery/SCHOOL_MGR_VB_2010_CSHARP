@@ -21,10 +21,10 @@ namespace GestionEleve.Eleve
 
 
         public void ModifyEleve(EleveModel eleve){
-            string query = "UPDATE Eleve SET nomComplet = ?, " +
-                           "dateNaissance = ?, " +
-                           "dateInscription = ?, " +
-                           "score = ? " +
+            string query = "UPDATE Eleve SET NOM_COMPLET = ?, " +
+                           "DATE_DE_NAISSANCE = ?, " +
+                           "DATE_INSCRIPTION = ?, " +
+                           "SCORE = ? " +
                            "WHERE ID_ELEVE = ?";
             Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score, eleve.ID_ELEVE);
         }

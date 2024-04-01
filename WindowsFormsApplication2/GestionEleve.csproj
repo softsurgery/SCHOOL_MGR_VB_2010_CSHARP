@@ -64,12 +64,6 @@
     <Compile Include="Eleve\EleveShow.Designer.cs">
       <DependentUpon>EleveShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Eleve\EleveModify.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Eleve\EleveModify.Designer.cs">
-      <DependentUpon>EleveModify.cs</DependentUpon>
-    </Compile>
     <Compile Include="Eleve\EleveMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,7 +108,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="colors.cs" />
+    <Compile Include="Utils\colors.cs" />
     <Compile Include="Utils\Connection.cs" />
     <Compile Include="Utils\RatingControl.cs">
       <SubType>UserControl</SubType>
@@ -126,9 +120,6 @@
     <Compile Include="Utils\Transform.cs" />
     <EmbeddedResource Include="Eleve\EleveMain.resx">
       <DependentUpon>EleveMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Eleve\EleveModify.resx">
-      <DependentUpon>EleveModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eleve\EleveShow.resx">
       <DependentUpon>EleveShow.cs</DependentUpon>

@@ -48,12 +48,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.supprimer = new System.Windows.Forms.Button();
             this.stars = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.modifier = new System.Windows.Forms.Button();
             this.plus = new System.Windows.Forms.Button();
             this.minus = new System.Windows.Forms.Button();
             this.nomComplet = new System.Windows.Forms.TextBox();
             this.dob = new System.Windows.Forms.DateTimePicker();
             this.dateINS = new System.Windows.Forms.DateTimePicker();
+            this.Erreur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -225,15 +226,16 @@
             this.stars.TabIndex = 15;
             this.stars.Paint += new System.Windows.Forms.PaintEventHandler(this.stars_Paint_1);
             // 
-            // button2
+            // modifier
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(821, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 36);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Enregistrer";
-            this.button2.UseVisualStyleBackColor = true;
+            this.modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifier.Location = new System.Drawing.Point(821, 360);
+            this.modifier.Name = "modifier";
+            this.modifier.Size = new System.Drawing.Size(119, 36);
+            this.modifier.TabIndex = 16;
+            this.modifier.Text = "Enregistrer";
+            this.modifier.UseVisualStyleBackColor = true;
+            this.modifier.Click += new System.EventHandler(this.modifier_Click);
             // 
             // plus
             // 
@@ -263,6 +265,7 @@
             this.nomComplet.Name = "nomComplet";
             this.nomComplet.Size = new System.Drawing.Size(187, 22);
             this.nomComplet.TabIndex = 19;
+            this.nomComplet.TextChanged += new System.EventHandler(this.nomComplet_TextChanged);
             // 
             // dob
             // 
@@ -271,6 +274,7 @@
             this.dob.Size = new System.Drawing.Size(187, 22);
             this.dob.TabIndex = 20;
             this.dob.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
+            this.dob.ValueChanged += new System.EventHandler(this.dob_ValueChanged);
             // 
             // dateINS
             // 
@@ -279,17 +283,29 @@
             this.dateINS.Size = new System.Drawing.Size(187, 22);
             this.dateINS.TabIndex = 21;
             this.dateINS.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
+            this.dateINS.ValueChanged += new System.EventHandler(this.dateINS_ValueChanged);
+            // 
+            // Erreur
+            // 
+            this.Erreur.AutoSize = true;
+            this.Erreur.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Erreur.ForeColor = System.Drawing.Color.Red;
+            this.Erreur.Location = new System.Drawing.Point(863, 331);
+            this.Erreur.Name = "Erreur";
+            this.Erreur.Size = new System.Drawing.Size(0, 17);
+            this.Erreur.TabIndex = 22;
             // 
             // EleveShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Erreur);
             this.Controls.Add(this.dateINS);
             this.Controls.Add(this.dob);
             this.Controls.Add(this.nomComplet);
             this.Controls.Add(this.minus);
             this.Controls.Add(this.plus);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.modifier);
             this.Controls.Add(this.stars);
             this.Controls.Add(this.supprimer);
             this.Controls.Add(this.label6);
@@ -335,12 +351,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button supprimer;
         private System.Windows.Forms.Panel stars;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button modifier;
         private System.Windows.Forms.Button plus;
         private System.Windows.Forms.Button minus;
         private System.Windows.Forms.TextBox nomComplet;
         private System.Windows.Forms.DateTimePicker dob;
         private System.Windows.Forms.DateTimePicker dateINS;
+        private System.Windows.Forms.Label Erreur;
 
     }
 }

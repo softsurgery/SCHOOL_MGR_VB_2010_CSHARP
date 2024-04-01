@@ -9,5 +9,7 @@ namespace GestionEleve.Utils
     class colors
     {
         public static Color green = ColorTranslator.FromHtml("#6bb300");
+        public static Color red = ColorTranslator.FromHtml("#ff0000");
+
     }
 }
