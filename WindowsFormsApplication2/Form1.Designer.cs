@@ -30,6 +30,7 @@
         {
             this.windowTitle = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.ElevePanal = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,10 +76,20 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1270, 372);
-            this.splitContainer1.SplitterDistance = 156;
+            this.splitContainer1.Size = new System.Drawing.Size(1328, 407);
+            this.splitContainer1.SplitterDistance = 163;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Menu";
             // 
             // button6
             // 
@@ -149,25 +159,15 @@
             this.panel1.Location = new System.Drawing.Point(4, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1101, 367);
+            this.panel1.Size = new System.Drawing.Size(1152, 403);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 26);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Menu";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 492);
+            this.ClientSize = new System.Drawing.Size(1334, 520);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.windowTitle);
             this.Margin = new System.Windows.Forms.Padding(4);

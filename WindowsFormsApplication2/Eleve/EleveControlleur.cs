@@ -65,8 +65,8 @@ namespace GestionEleve.Eleve
 
         public void DeleteEleve(int id)
         {
-            string query = "DELETE FROM Eleve WHERE ID = ?";
-            Connection.ExecuteNonQuery(query, id);
+            string query = "DELETE FROM Eleve WHERE ID_ELEVE = ?";
+            Connection.ExecuteNonQuery(query,id);
         }
 
         public int GetMaxId()

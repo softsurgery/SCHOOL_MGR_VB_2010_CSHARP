@@ -13,6 +13,11 @@ namespace GestionEleve.Eleve
     public partial class EleveShow : UserControl
     {
         private EleveControlleur controller;
+        private int ID_ELEVE = -1;
+        private String NOM_COMPLET = "";
+        private String DATE_DE_NAISSANCE = "";
+        private String DATE_DINSCRIPTION = "";
+        private int SCORE = 0;
 
         public EleveShow(){
             InitializeComponent();
@@ -20,9 +25,17 @@ namespace GestionEleve.Eleve
             //controller
             controller = new EleveControlleur();
 
+            //config
             photo.SizeMode = PictureBoxSizeMode.Zoom;
             Transform.SetRoundedBorder(photo, 30);
-            photo.Load("C:\\user.png");       
+            photo.Load("C:\\user.png");
+
+            //config
+            dob.Format = DateTimePickerFormat.Short;
+            dob.ShowUpDown = false;
+
+            dateINS.Format = DateTimePickerFormat.Short;
+            dateINS.ShowUpDown = false;
         }
 
         private void EleveShow_Load(object sender, EventArgs e)
@@ -100,27 +113,64 @@ namespace GestionEleve.Eleve
         {
             if (e.RowIndex >= 0){
                 DataGridViewRow clickedRow = dataGrid.Rows[e.RowIndex];
-                object ID_ELEVE = clickedRow.Cells[0].Value;
-                object NOM_COMPLET = clickedRow.Cells[1].Value;
+                ID_ELEVE = (int)clickedRow.Cells[0].Value;
+                NOM_COMPLET = (String)clickedRow.Cells[1].Value;
                 nomComplet.Text = (String)NOM_COMPLET;
-                object DATE_DE_NAISSANCE = clickedRow.Cells[2].Value;
+                DATE_DE_NAISSANCE = (String)clickedRow.Cells[2].Value;
                 dob.Text = (String)DATE_DE_NAISSANCE;
-                object DATE_DINSCRIPTION = clickedRow.Cells[3].Value;
-                dateIns.Text = (String)DATE_DINSCRIPTION;
-                object scoreVal = clickedRow.Cells[4].Value;
+                DATE_DINSCRIPTION = (String)clickedRow.Cells[3].Value;
+                dateINS.Text = (String)DATE_DINSCRIPTION;
+                SCORE = (int)clickedRow.Cells[4].Value;
+                giveRate((int)SCORE);
+            }
 
-                UserControl rating = new RatingControl((int)scoreVal);
+        }
+
+        private void giveRate(int rate){
+            UserControl rating = new RatingControl(rate);
                 stars.Controls.Clear();
                 stars.Controls.Add(rating);
                 rating.Show();
-                
-            }
-
         }
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void supprimer_Click(object sender, EventArgs e)
+        {
+            if (NOM_COMPLET != ""){
+                DialogResult result = MessageBox.Show("Voulez vous supprimer l'eleve " + NOM_COMPLET, "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes){
+                    controller.DeleteEleve(ID_ELEVE);
+                    nomComplet.Text = "";
+                    dateINS.Text = "";
+                    dob.Text = "";
+                    giveRate(0);
+                    FetchAndDisplayData();
+                }
+            }
+          
+        }
+
+        private void plus_Click(object sender, EventArgs e)
+        {
+            if (SCORE < 5)
+            {
+                SCORE++;
+                giveRate(SCORE);
+            }
+        }
+
+        private void minus_Click(object sender, EventArgs e)
+        {
+            if (SCORE > 0)
+            {
+                SCORE--;
+                giveRate(SCORE);
+            }
         }
     }
 }

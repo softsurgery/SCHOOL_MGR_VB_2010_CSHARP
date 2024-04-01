@@ -47,11 +47,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.supprimer = new System.Windows.Forms.Button();
-            this.modifier = new System.Windows.Forms.Button();
-            this.nomComplet = new System.Windows.Forms.Label();
-            this.dob = new System.Windows.Forms.Label();
-            this.dateIns = new System.Windows.Forms.Label();
             this.stars = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.plus = new System.Windows.Forms.Button();
+            this.minus = new System.Windows.Forms.Button();
+            this.nomComplet = new System.Windows.Forms.TextBox();
+            this.dob = new System.Windows.Forms.DateTimePicker();
+            this.dateINS = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -125,7 +127,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(73, 326);
+            this.button1.Location = new System.Drawing.Point(299, 360);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 36);
             this.button1.TabIndex = 1;
@@ -154,7 +156,7 @@
             // photo
             // 
             this.photo.InitialImage = null;
-            this.photo.Location = new System.Drawing.Point(760, 24);
+            this.photo.Location = new System.Drawing.Point(866, 11);
             this.photo.Name = "photo";
             this.photo.Size = new System.Drawing.Size(166, 156);
             this.photo.TabIndex = 4;
@@ -165,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(756, 195);
+            this.label3.Location = new System.Drawing.Point(753, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 6;
@@ -176,18 +178,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(756, 224);
+            this.label4.Location = new System.Drawing.Point(753, 267);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 20);
+            this.label4.Size = new System.Drawing.Size(181, 20);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Date de Naissance:";
+            this.label4.Text = "Date de Naissance :";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(756, 256);
+            this.label5.Location = new System.Drawing.Point(754, 298);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 20);
             this.label5.TabIndex = 8;
@@ -198,7 +200,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(756, 289);
+            this.label6.Location = new System.Drawing.Point(752, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 9;
@@ -207,64 +209,88 @@
             // supprimer
             // 
             this.supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supprimer.Location = new System.Drawing.Point(964, 120);
+            this.supprimer.Location = new System.Drawing.Point(961, 360);
             this.supprimer.Name = "supprimer";
             this.supprimer.Size = new System.Drawing.Size(108, 36);
             this.supprimer.TabIndex = 10;
             this.supprimer.Text = "Supprimer";
             this.supprimer.UseVisualStyleBackColor = true;
-            // 
-            // modifier
-            // 
-            this.modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifier.Location = new System.Drawing.Point(964, 49);
-            this.modifier.Name = "modifier";
-            this.modifier.Size = new System.Drawing.Size(108, 36);
-            this.modifier.TabIndex = 11;
-            this.modifier.Text = "Modifier";
-            this.modifier.UseVisualStyleBackColor = true;
-            // 
-            // nomComplet
-            // 
-            this.nomComplet.AutoSize = true;
-            this.nomComplet.Location = new System.Drawing.Point(896, 195);
-            this.nomComplet.Name = "nomComplet";
-            this.nomComplet.Size = new System.Drawing.Size(0, 17);
-            this.nomComplet.TabIndex = 12;
-            // 
-            // dob
-            // 
-            this.dob.AutoSize = true;
-            this.dob.Location = new System.Drawing.Point(937, 224);
-            this.dob.Name = "dob";
-            this.dob.Size = new System.Drawing.Size(0, 17);
-            this.dob.TabIndex = 13;
-            // 
-            // dateIns
-            // 
-            this.dateIns.AutoSize = true;
-            this.dateIns.Location = new System.Drawing.Point(931, 257);
-            this.dateIns.Name = "dateIns";
-            this.dateIns.Size = new System.Drawing.Size(0, 17);
-            this.dateIns.TabIndex = 14;
+            this.supprimer.Click += new System.EventHandler(this.supprimer_Click);
             // 
             // stars
             // 
-            this.stars.Location = new System.Drawing.Point(824, 282);
+            this.stars.Location = new System.Drawing.Point(820, 186);
             this.stars.Name = "stars";
-            this.stars.Size = new System.Drawing.Size(277, 35);
+            this.stars.Size = new System.Drawing.Size(178, 35);
             this.stars.TabIndex = 15;
             this.stars.Paint += new System.Windows.Forms.PaintEventHandler(this.stars_Paint_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(821, 360);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 36);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Enregistrer";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // plus
+            // 
+            this.plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plus.Location = new System.Drawing.Point(1050, 185);
+            this.plus.Name = "plus";
+            this.plus.Size = new System.Drawing.Size(40, 36);
+            this.plus.TabIndex = 17;
+            this.plus.Text = "+";
+            this.plus.UseVisualStyleBackColor = true;
+            this.plus.Click += new System.EventHandler(this.plus_Click);
+            // 
+            // minus
+            // 
+            this.minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minus.Location = new System.Drawing.Point(1004, 185);
+            this.minus.Name = "minus";
+            this.minus.Size = new System.Drawing.Size(40, 36);
+            this.minus.TabIndex = 18;
+            this.minus.Text = "-";
+            this.minus.UseVisualStyleBackColor = true;
+            this.minus.Click += new System.EventHandler(this.minus_Click);
+            // 
+            // nomComplet
+            // 
+            this.nomComplet.Location = new System.Drawing.Point(945, 232);
+            this.nomComplet.Name = "nomComplet";
+            this.nomComplet.Size = new System.Drawing.Size(187, 22);
+            this.nomComplet.TabIndex = 19;
+            // 
+            // dob
+            // 
+            this.dob.Location = new System.Drawing.Point(945, 265);
+            this.dob.Name = "dob";
+            this.dob.Size = new System.Drawing.Size(187, 22);
+            this.dob.TabIndex = 20;
+            this.dob.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
+            // 
+            // dateINS
+            // 
+            this.dateINS.Location = new System.Drawing.Point(945, 298);
+            this.dateINS.Name = "dateINS";
+            this.dateINS.Size = new System.Drawing.Size(187, 22);
+            this.dateINS.TabIndex = 21;
+            this.dateINS.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // EleveShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.stars);
-            this.Controls.Add(this.dateIns);
+            this.Controls.Add(this.dateINS);
             this.Controls.Add(this.dob);
             this.Controls.Add(this.nomComplet);
-            this.Controls.Add(this.modifier);
+            this.Controls.Add(this.minus);
+            this.Controls.Add(this.plus);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.stars);
             this.Controls.Add(this.supprimer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -277,7 +303,7 @@
             this.Controls.Add(this.dataGrid);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EleveShow";
-            this.Size = new System.Drawing.Size(1115, 383);
+            this.Size = new System.Drawing.Size(1177, 410);
             this.Load += new System.EventHandler(this.EleveShow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).EndInit();
@@ -308,11 +334,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button supprimer;
-        private System.Windows.Forms.Button modifier;
-        private System.Windows.Forms.Label nomComplet;
-        private System.Windows.Forms.Label dob;
-        private System.Windows.Forms.Label dateIns;
         private System.Windows.Forms.Panel stars;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button plus;
+        private System.Windows.Forms.Button minus;
+        private System.Windows.Forms.TextBox nomComplet;
+        private System.Windows.Forms.DateTimePicker dob;
+        private System.Windows.Forms.DateTimePicker dateINS;
 
     }
 }
