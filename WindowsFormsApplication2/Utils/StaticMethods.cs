@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace GestionEleve.Utils
 {
@@ -18,6 +19,25 @@ namespace GestionEleve.Utils
 
         public static string GetTodayDate(){
             return DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        public static List<String> getFileNames(String dataFolderRelativePath){
+            string dataFolderPath = Path.Combine(Directory.GetCurrentDirectory(), dataFolderRelativePath);
+            if (Directory.Exists(dataFolderPath))
+            {
+                string[] files = Directory.GetFiles(dataFolderPath);
+                List<String> names = new List<string>();
+                foreach (string file in files)
+                {
+                    names.Add(Path.GetFileName(file));
+                }
+                return names;
+            }
+            else
+            {
+                Console.WriteLine("Data folder does not exist.");
+            }
+            return null;
         }
     }
 }

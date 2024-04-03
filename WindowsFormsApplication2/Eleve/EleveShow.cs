@@ -50,22 +50,18 @@ namespace GestionEleve.Eleve
             dataGrid.Columns[3].HeaderText = "Date d'Inscription";
             dataGrid.Columns[4].HeaderText = "Score";
             FetchAndDisplayData();
+
+            List<String> items = StaticMethods.getFileNames(@"..\..\Data\NS");
+            foreach (var item in items)
+            {
+                NS.Items.Add(item);
+            }
         }
 
         private void FetchAndDisplayData(){
             dataGrid.DataSource = controller.GetAllEleves();
         }
 
-        public delegate void FetchAndDisplayDataDelegate();
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form eleveAdd = new EleveAdd(FetchAndDisplayData);
-            eleveAdd.Show();
-            FetchAndDisplayData();
-        }
-
-      
 
          //MessageBox.Show("Clicked value: " + cellValue.ToString());
 
@@ -140,16 +136,16 @@ namespace GestionEleve.Eleve
 
         private void supprimer_Click(object sender, EventArgs e)
         {
-            if (NOM_COMPLET != ""){
+            if (ID_ELEVE == -1)
+            {
+                MessageBox.Show("Suppression Invalide");
+            }
+            else if (NOM_COMPLET != ""){
                 DialogResult result = MessageBox.Show("Voulez vous supprimer l'eleve " + NOM_COMPLET, "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes){
                     controller.DeleteEleve(ID_ELEVE);
-                    ID_ELEVE = -1;
-                    nomComplet.Text = "";
-                    dateINS.Text = "";
-                    dob.Text = "";
-                    giveRate(0);
+                    clear();
                     FetchAndDisplayData();
                 }
             }
@@ -174,11 +170,10 @@ namespace GestionEleve.Eleve
             }
         }
 
-        private void modifier_Click(object sender, EventArgs e)
+        private void enregistrer_Click(object sender, EventArgs e)
         {
-            if (ID_ELEVE != -1)
+            
             {
-
                 Erreur.ForeColor = colors.red;
                 int age = StaticMethods.CalculateDateDifferenceInYears(dob.Text, StaticMethods.GetTodayDate());
                 int insdiff = StaticMethods.CalculateDateDifferenceInYears(dateINS.Text, StaticMethods.GetTodayDate());
@@ -190,12 +185,33 @@ namespace GestionEleve.Eleve
                 else
                 {
                     EleveModel eleve = new EleveModel(ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_DINSCRIPTION, SCORE);
-                    controller.ModifyEleve(eleve);
-                    Erreur.ForeColor = colors.green;
-                    Erreur.Text = "Modification Reussite";
-                    FetchAndDisplayData();
+                    if (ID_ELEVE != -1)
+                    {
+                        controller.ModifyEleve(eleve);
+                        Erreur.ForeColor = colors.green;
+                        Erreur.Text = "Modification Reussite";
+                    }
+                    else {
+                        controller.AddEleve(eleve);
+                        Erreur.ForeColor = colors.green;
+                        Erreur.Text = "Ajout Reusssie";
+                    }
+                   FetchAndDisplayData();
                 };
             }
+        }
+
+        private void nouveau_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void clear(){
+            ID_ELEVE = -1;
+            nomComplet.Text = "";
+            dateINS.Text = "";
+            dob.Text = "";
+            giveRate(0);
         }
 
         private void nomComplet_TextChanged(object sender, EventArgs e)
@@ -213,5 +229,17 @@ namespace GestionEleve.Eleve
             DATE_DINSCRIPTION = dateINS.Text;
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

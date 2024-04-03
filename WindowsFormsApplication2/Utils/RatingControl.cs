@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GestionEleve.Utils
 {
@@ -24,28 +25,22 @@ namespace GestionEleve.Utils
         private void InitializeStars()
         {
             stars = new PictureBox[starNum];
-            int starSize = 30; // Size of the PictureBox
+            int starSize = 30;
 
             for (int i = 0; i < starNum; i++)
             {
                 PictureBox star = new PictureBox
                 {
-                    SizeMode = PictureBoxSizeMode.Zoom, // Ensure that the image is centered within the PictureBox
+                    SizeMode = PictureBoxSizeMode.Zoom,
                     Tag = i,
                     Cursor = Cursors.Hand,
                 };
-
-                star.Load("C://star.png"); // Load the star image
-                ResizeStar(star, starSize); // Resize the star image
-
+                star.Load(Path.Combine(Directory.GetCurrentDirectory(), @"../../Data/star.png"));
+                ResizeStar(star, starSize);
                 stars[i] = star;
                 Controls.Add(star);
-
-                // Position the stars horizontally
                 star.Location = new Point(i * starSize, 0);
             }
-
-            // Set the size of the UserControl based on the number of stars
             this.Size = new Size(starNum * starSize, starSize);
         }
 
@@ -53,7 +48,6 @@ namespace GestionEleve.Utils
         {
             if (star.Image != null)
             {
-                // Calculate the new size for the image
                 int newSize = Math.Min(size, Math.Max(star.Image.Width, star.Image.Height));
                 star.Size = new Size(newSize, newSize);
             }
