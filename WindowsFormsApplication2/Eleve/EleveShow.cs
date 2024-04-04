@@ -18,6 +18,9 @@ namespace GestionEleve.Eleve
         private String DATE_DE_NAISSANCE = "";
         private String DATE_DINSCRIPTION = "";
         private int SCORE = 0;
+        private String CLASSIFICATION = "";
+
+        private int year;
 
         public EleveShow(){
             InitializeComponent();
@@ -36,6 +39,9 @@ namespace GestionEleve.Eleve
 
             dateINS.Format = DateTimePickerFormat.Short;
             dateINS.ShowUpDown = false;
+
+            year = StaticMethods.ReadYearFromFile();
+            
         }
 
         private void EleveShow_Load(object sender, EventArgs e)
@@ -49,17 +55,21 @@ namespace GestionEleve.Eleve
             dataGrid.Columns[2].HeaderText = "Date de Naissance";
             dataGrid.Columns[3].HeaderText = "Date d'Inscription";
             dataGrid.Columns[4].HeaderText = "Score";
-            FetchAndDisplayData();
+            dataGrid.Columns[5].HeaderText = "Classification";
 
+            NS.Items.Add("Sélectionnez...");
             List<String> items = StaticMethods.getFileNames(@"..\..\Data\NS");
             foreach (var item in items)
             {
                 NS.Items.Add(item);
             }
+            FetchAndDisplayData();
+            NS.SelectedIndex = 0;
+            clear();
         }
 
         private void FetchAndDisplayData(){
-            dataGrid.DataSource = controller.GetAllEleves();
+            dataGrid.DataSource = controller.GetAllElevesByYear("",year);
         }
 
 
@@ -72,7 +82,7 @@ namespace GestionEleve.Eleve
 
         private void recherche_TextChanged(object sender, EventArgs e)
         {
-            dataGrid.DataSource = controller.GetAllEleves(recherche.Text);
+            dataGrid.DataSource = controller.GetAllElevesByYear(recherche.Text,year);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -117,7 +127,11 @@ namespace GestionEleve.Eleve
                 DATE_DINSCRIPTION = (String)clickedRow.Cells[3].Value;
                 dateINS.Text = (String)DATE_DINSCRIPTION;
                 SCORE = (int)clickedRow.Cells[4].Value;
+                CLASSIFICATION = (String)clickedRow.Cells[5].Value;
+                NS.SelectedText = CLASSIFICATION;
                 giveRate((int)SCORE);
+                draft.ForeColor = colors.red;
+                draft.Text = "ALTER";
             }
 
         }
@@ -127,11 +141,6 @@ namespace GestionEleve.Eleve
                 stars.Controls.Clear();
                 stars.Controls.Add(rating);
                 rating.Show();
-        }
-
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void supprimer_Click(object sender, EventArgs e)
@@ -182,9 +191,10 @@ namespace GestionEleve.Eleve
                 else if (!nomComplet.Text.Contains(" ")) Erreur.Text = "le nom est incorrect";
                 else if (age < 14) Erreur.Text = "La date est invalide";
                 else if (age - insdiff < 14) Erreur.Text = "La date est invalide";
+                else if (NS.SelectedIndex == 0) Erreur.Text = "Le Niveau/Section doit etre definie";
                 else
                 {
-                    EleveModel eleve = new EleveModel(ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_DINSCRIPTION, SCORE);
+                    EleveModel eleve = new EleveModel(ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_DINSCRIPTION, SCORE, CLASSIFICATION);
                     if (ID_ELEVE != -1)
                     {
                         controller.ModifyEleve(eleve);
@@ -197,6 +207,8 @@ namespace GestionEleve.Eleve
                         Erreur.Text = "Ajout Reusssie";
                     }
                    FetchAndDisplayData();
+                    clear();
+                    draft.Text = "";
                 };
             }
         }
@@ -204,6 +216,8 @@ namespace GestionEleve.Eleve
         private void nouveau_Click(object sender, EventArgs e)
         {
             clear();
+            draft.ForeColor = colors.green;
+            draft.Text = "DRAFT";
         }
 
         private void clear(){
@@ -211,6 +225,8 @@ namespace GestionEleve.Eleve
             nomComplet.Text = "";
             dateINS.Text = "";
             dob.Text = "";
+            NS.SelectedIndex = 0;
+            draft.Text = "";
             giveRate(0);
         }
 
@@ -236,6 +252,11 @@ namespace GestionEleve.Eleve
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CLASSIFICATION = NS.Text;
+        }
+
+        private void dataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

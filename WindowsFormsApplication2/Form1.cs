@@ -10,6 +10,7 @@ using GestionEleve.Eleve;
 using GestionEleve.Instructeur;
 using GestionEleve.Autre;
 using GestionEleve.Autre.AnneeScolaire;
+using GestionEleve.Utils;
 
 namespace GestionEleve
 {
@@ -28,6 +29,7 @@ namespace GestionEleve
         }
 
         private void fetchAneees(){
+            int year = StaticMethods.ReadYearFromFile();
             annee.Items.Clear();
             annee.Items.Add("Sélectionnez...");
             annee.SelectedIndex = 0;
@@ -37,6 +39,11 @@ namespace GestionEleve
             foreach (var item in items)
             {
                 annee.Items.Add(item.ANNEE1 + "/" + item.ANNEE2);
+                if (item.ANNEE1 == year)
+                {
+                    annee.SelectedIndex = annee.Items.Count - 1; // Set the selected index to the current item
+                    annee.ForeColor = SystemColors.WindowText; // Change the color to indicate selection
+                }
             }
         }
 
@@ -68,6 +75,15 @@ namespace GestionEleve
             UserControl eleveShow = new EleveShow();
             panel1.Controls.Add(eleveShow);
             eleveShow.Show();
+            toggleScholarYear(true);
+          
+        }
+
+        private void toggleScholarYear(bool value){
+            annee.Visible = value;
+            label1.Visible = value;
+            ajouter_annee.Visible = value;
+            effacer.Visible = value;
         }
 
         private void instructeurMenu_Click(object sender, EventArgs e)
@@ -76,6 +92,9 @@ namespace GestionEleve
             UserControl instructeurMain = new InstructeurMain();
             panel1.Controls.Add(instructeurMain);
             instructeurMain.Show();
+
+            toggleScholarYear(false);
+
         }
 
         private void autres_Click(object sender, EventArgs e)
@@ -84,6 +103,7 @@ namespace GestionEleve
             UserControl autreMain = new AutreShow();
             panel1.Controls.Add(autreMain);
             autreMain.Show();
+            toggleScholarYear(false);
         }
 
         private void parametre_Click(object sender, EventArgs e)
@@ -131,6 +151,8 @@ namespace GestionEleve
             {
                 annee.ForeColor = SystemColors.WindowText;
                 ANNEE_SCOLAIRE = annee.Text;
+                StaticMethods.SaveSelectedDate(AnneeController.SubstringTillSlash(annee.Text));
+                showElevePanal();
             }
         }
 
@@ -139,7 +161,7 @@ namespace GestionEleve
             {
                 int year;
                 int.TryParse(AnneeController.SubstringTillSlash(annee.Text), out year);
-                AnneeModel annee_model = new AnneeModel(-1, year, year + 1);
+                AnneeModel annee_model = new AnneeModel(year, year + 1);
                 annee_controller.AddAnnee(annee_model);
                
                 fetchAneees();

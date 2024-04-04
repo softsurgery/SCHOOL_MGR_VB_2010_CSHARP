@@ -30,6 +30,7 @@
         {
             this.windowTitle = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.effacer = new System.Windows.Forms.Button();
             this.ajouter_annee = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.annee = new System.Windows.Forms.ComboBox();
@@ -37,7 +38,6 @@
             this.InstructeurMenu = new System.Windows.Forms.Button();
             this.EleveMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.effacer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,6 +83,17 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
             // 
+            // effacer
+            // 
+            this.effacer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.effacer.Location = new System.Drawing.Point(154, 417);
+            this.effacer.Name = "effacer";
+            this.effacer.Size = new System.Drawing.Size(101, 36);
+            this.effacer.TabIndex = 18;
+            this.effacer.Text = "Effacer";
+            this.effacer.UseVisualStyleBackColor = true;
+            this.effacer.Click += new System.EventHandler(this.effacer_Click);
+            // 
             // ajouter_annee
             // 
             this.ajouter_annee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,7 +135,7 @@
             this.autresMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.autresMenu.Size = new System.Drawing.Size(263, 64);
             this.autresMenu.TabIndex = 7;
-            this.autresMenu.Text = "Autres";
+            this.autresMenu.Text = "Statstique";
             this.autresMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.autresMenu.UseVisualStyleBackColor = false;
             this.autresMenu.Click += new System.EventHandler(this.autres_Click);
@@ -167,17 +178,6 @@
             this.panel1.Size = new System.Drawing.Size(1180, 480);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // effacer
-            // 
-            this.effacer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.effacer.Location = new System.Drawing.Point(154, 417);
-            this.effacer.Name = "effacer";
-            this.effacer.Size = new System.Drawing.Size(101, 36);
-            this.effacer.TabIndex = 18;
-            this.effacer.Text = "Effacer";
-            this.effacer.UseVisualStyleBackColor = true;
-            this.effacer.Click += new System.EventHandler(this.effacer_Click);
             // 
             // Form1
             // 

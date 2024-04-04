@@ -42,5 +42,15 @@ namespace GestionEleve.Properties {
                 return ((string)(this["MLRConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\DBAgence.accdb")]
+        public string DB {
+            get {
+                return ((string)(this["DB"]));
+            }
+        }
     }
 }

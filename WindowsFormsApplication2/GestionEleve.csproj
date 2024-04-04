@@ -47,22 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autre\AnneeScolaire\AnneeController.cs" />
-    <Compile Include="Autre\AnneeScolaire\AnneeModel.cs" />
+    <Compile Include="AnneeScolaire\AnneeController.cs" />
+    <Compile Include="AnneeScolaire\AnneeModel.cs" />
     <Compile Include="Autre\AutreShow.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Autre\AutreShow.Designer.cs">
       <DependentUpon>AutreShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBDataSet.cs">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Autre\MatiereModel.cs" />
+    <Compile Include="Autre\R1.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DBDataSet.Designer.cs">
+    <Compile Include="Autre\R1.Designer.cs">
+      <DependentUpon>R1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autre\R2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Autre\R2.Designer.cs">
+      <DependentUpon>R2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autre\R3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Autre\R3.Designer.cs">
+      <DependentUpon>R3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBAgenceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <DependentUpon>DBAgenceDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Eleve\EleveControlleur.cs" />
     <Compile Include="Eleve\EleveModel.cs" />
@@ -71,12 +86,6 @@
     </Compile>
     <Compile Include="Eleve\EleveShow.Designer.cs">
       <DependentUpon>EleveShow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Eleve\EleveMain.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Eleve\EleveMain.Designer.cs">
-      <DependentUpon>EleveMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -108,15 +117,11 @@
     <Compile Include="Instructeur\InstructeurShow.Designer.cs">
       <DependentUpon>InstructeurShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="MLRDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MLRDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\colors.cs" />
     <Compile Include="Utils\Connection.cs" />
+    <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\RatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,8 +133,14 @@
     <EmbeddedResource Include="Autre\AutreShow.resx">
       <DependentUpon>AutreShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Eleve\EleveMain.resx">
-      <DependentUpon>EleveMain.cs</DependentUpon>
+    <EmbeddedResource Include="Autre\R1.resx">
+      <DependentUpon>R1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autre\R2.resx">
+      <DependentUpon>R2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autre\R3.resx">
+      <DependentUpon>R3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eleve\EleveShow.resx">
       <DependentUpon>EleveShow.cs</DependentUpon>
@@ -154,27 +165,16 @@
       <DependentUpon>RatingControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="DBDataSet.xsc">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    <None Include="DBAgenceDataSet.xsc">
+      <DependentUpon>DBAgenceDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DBDataSet.xsd">
+    <None Include="DBAgenceDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBAgenceDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DBDataSet.xss">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MLRDataSet.xsc">
-      <DependentUpon>MLRDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MLRDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MLRDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MLRDataSet.xss">
-      <DependentUpon>MLRDataSet.xsd</DependentUpon>
+    <None Include="DBAgenceDataSet.xss">
+      <DependentUpon>DBAgenceDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,17 +187,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MLR.accdb">
+    <Content Include="DBAgence.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Autre\Matiere\" />
-    <Folder Include="Autre\Niveau\" />
-    <Folder Include="Autre\Section\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

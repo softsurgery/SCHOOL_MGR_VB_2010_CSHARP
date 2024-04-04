@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 namespace GestionEleve.Utils
 {
@@ -38,6 +39,64 @@ namespace GestionEleve.Utils
                 Console.WriteLine("Data folder does not exist.");
             }
             return null;
+        }
+
+        public static void SaveSelectedDate(string selectedDate)
+        {
+            string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Data");
+            string filePath = Path.Combine(directory, "config");
+
+            try
+            {
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.WriteLine(selectedDate);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving selected date: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static int ReadYearFromFile()
+        {
+            try
+            {
+                string content = File.ReadAllText(@"..\..\Data\config");
+                int integerValue;
+                if (int.TryParse(content, out integerValue))
+                {
+                    return integerValue;
+                }
+                else
+                {
+                    throw new FormatException("File does not contain a valid integer.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new IOException("Error reading integer from file: " + ex.Message);
+            }
+        }
+        public static int GetYearFromDate(string dateString)
+        {
+            DateTime date;
+            if (DateTime.TryParseExact(dateString, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date))
+            {
+                int year = date.Year;
+                return year;
+            }
+            else
+            {
+                Console.Write(dateString);
+                return -1;
+            }
         }
     }
 }

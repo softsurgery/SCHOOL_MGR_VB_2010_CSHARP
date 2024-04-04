@@ -11,11 +11,11 @@ namespace GestionEleve.Autre.AnneeScolaire
     {
          private int maxId;
 
-         public AnneeController() { maxId = this.GetMaxId(); }
+         public AnneeController() {}
 
         public void AddAnnee(AnneeModel annee){
-            string query = "INSERT INTO ANNEE_SCOLAIRE (ID_ANNEE, ANNEE1, ANNEE2) VALUES (?, ?, ?)";
-            Connection.ExecuteNonQuery(query, maxId + 1, annee.ANNEE1, annee.ANNEE2);
+            string query = "INSERT INTO ANNEE_SCOLAIRE (ANNEE1, ANNEE2) VALUES (?, ?)";
+            Connection.ExecuteNonQuery(query,annee.ANNEE1, annee.ANNEE2);
         }
 
         public List<AnneeModel> GetAllAnnee(string key = "")
@@ -34,8 +34,7 @@ namespace GestionEleve.Autre.AnneeScolaire
                         while (reader.Read()){
                             AnneeModel eleve = new AnneeModel(
                                 reader.GetInt16(0),
-                                reader.GetInt16(1),
-                                reader.GetInt16(2)
+                                reader.GetInt16(1)
                             );
                             eleves.Add(eleve);
                         }
@@ -79,32 +78,5 @@ namespace GestionEleve.Autre.AnneeScolaire
         return true;
     }
 
-
-        public int GetMaxId()
-        {
-            int count = 0;
-            string query = "SELECT MAX(ID_ANNEE) FROM ANNEE_SCOLAIRE";
-            using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))
-            {
-                using (OleDbCommand command = new OleDbCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        var result = command.ExecuteScalar();
-                        if (result != null)
-                        {
-                            int.TryParse(result.ToString(), out count);
-                        }
-                        else count = -1;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error getting annee index: " + ex.Message);
-                    }
-                }
-            }
-            return count;
-        }
     }
 }

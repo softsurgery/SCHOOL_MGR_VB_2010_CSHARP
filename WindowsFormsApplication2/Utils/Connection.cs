@@ -8,7 +8,7 @@ namespace GestionEleve.Utils
 {
     class Connection{
 
-        private const String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\DBAgence.accdb; Persist Security Info=False;";
+        private const String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../Data/DBAgence.accdb; Persist Security Info=False;";
         
         public static String getConnectionString(){
             return connectionString;

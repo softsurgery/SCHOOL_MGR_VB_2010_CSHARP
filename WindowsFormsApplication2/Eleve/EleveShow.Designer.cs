@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.iDELEVEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCOMPLETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dATEINSCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCOREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eLEVEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new GestionEleve.DBDataSet();
-            this.eLEVETableAdapter = new GestionEleve.DBDataSetTableAdapters.ELEVETableAdapter();
             this.recherche = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.photo = new System.Windows.Forms.PictureBox();
@@ -57,79 +49,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NS = new System.Windows.Forms.ComboBox();
             this.nouveau = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLASSIFICATIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eLEVEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dBAgenceDataSet = new GestionEleve.DBAgenceDataSet();
+            this.eLEVETableAdapter = new GestionEleve.DBAgenceDataSetTableAdapters.ELEVETableAdapter();
+            this.draft = new System.Windows.Forms.Label();
+            this.windowTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBAgenceDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGrid
-            // 
-            this.dataGrid.AutoGenerateColumns = false;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDELEVEDataGridViewTextBoxColumn,
-            this.nOMCOMPLETDataGridViewTextBoxColumn,
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn,
-            this.dATEINSCRIPTIONDataGridViewTextBoxColumn,
-            this.sCOREDataGridViewTextBoxColumn});
-            this.dataGrid.DataSource = this.eLEVEBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(18, 107);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.Size = new System.Drawing.Size(708, 332);
-            this.dataGrid.TabIndex = 0;
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
-            this.dataGrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_RowHeaderMouseClick);
-            // 
-            // iDELEVEDataGridViewTextBoxColumn
-            // 
-            this.iDELEVEDataGridViewTextBoxColumn.DataPropertyName = "ID_ELEVE";
-            this.iDELEVEDataGridViewTextBoxColumn.HeaderText = "ID_ELEVE";
-            this.iDELEVEDataGridViewTextBoxColumn.Name = "iDELEVEDataGridViewTextBoxColumn";
-            // 
-            // nOMCOMPLETDataGridViewTextBoxColumn
-            // 
-            this.nOMCOMPLETDataGridViewTextBoxColumn.DataPropertyName = "NOM_COMPLET";
-            this.nOMCOMPLETDataGridViewTextBoxColumn.HeaderText = "NOM_COMPLET";
-            this.nOMCOMPLETDataGridViewTextBoxColumn.Name = "nOMCOMPLETDataGridViewTextBoxColumn";
-            // 
-            // dATEDENAISSANCEDataGridViewTextBoxColumn
-            // 
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.DataPropertyName = "DATE_DE_NAISSANCE";
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.HeaderText = "DATE_DE_NAISSANCE";
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.Name = "dATEDENAISSANCEDataGridViewTextBoxColumn";
-            // 
-            // dATEINSCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.dATEINSCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "DATE_INSCRIPTION";
-            this.dATEINSCRIPTIONDataGridViewTextBoxColumn.HeaderText = "DATE_INSCRIPTION";
-            this.dATEINSCRIPTIONDataGridViewTextBoxColumn.Name = "dATEINSCRIPTIONDataGridViewTextBoxColumn";
-            // 
-            // sCOREDataGridViewTextBoxColumn
-            // 
-            this.sCOREDataGridViewTextBoxColumn.DataPropertyName = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.HeaderText = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.Name = "sCOREDataGridViewTextBoxColumn";
-            // 
-            // eLEVEBindingSource
-            // 
-            this.eLEVEBindingSource.DataMember = "ELEVE";
-            this.eLEVEBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // eLEVETableAdapter
-            // 
-            this.eLEVETableAdapter.ClearBeforeFill = true;
             // 
             // recherche
             // 
-            this.recherche.Location = new System.Drawing.Point(18, 59);
+            this.recherche.Location = new System.Drawing.Point(19, 84);
             this.recherche.Name = "recherche";
             this.recherche.Size = new System.Drawing.Size(708, 22);
             this.recherche.TabIndex = 2;
@@ -138,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 36);
+            this.label1.Location = new System.Drawing.Point(19, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 3;
@@ -317,10 +258,103 @@
             this.nouveau.UseVisualStyleBackColor = true;
             this.nouveau.Click += new System.EventHandler(this.nouveau_Click);
             // 
+            // dataGrid
+            // 
+            this.dataGrid.AutoGenerateColumns = false;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.cLASSIFICATIONDataGridViewTextBoxColumn});
+            this.dataGrid.DataSource = this.eLEVEBindingSource1;
+            this.dataGrid.Location = new System.Drawing.Point(21, 143);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.RowTemplate.Height = 24;
+            this.dataGrid.Size = new System.Drawing.Size(705, 327);
+            this.dataGrid.TabIndex = 26;
+            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick_1);
+            this.dataGrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_RowHeaderMouseClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID_ELEVE";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID_ELEVE";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "NOM_COMPLET";
+            this.dataGridViewTextBoxColumn2.HeaderText = "NOM_COMPLET";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "DATE_DE_NAISSANCE";
+            this.dataGridViewTextBoxColumn3.HeaderText = "DATE_DE_NAISSANCE";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DATE_INSCRIPTION";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DATE_INSCRIPTION";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "SCORE";
+            this.dataGridViewTextBoxColumn5.HeaderText = "SCORE";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // cLASSIFICATIONDataGridViewTextBoxColumn
+            // 
+            this.cLASSIFICATIONDataGridViewTextBoxColumn.DataPropertyName = "CLASSIFICATION";
+            this.cLASSIFICATIONDataGridViewTextBoxColumn.HeaderText = "CLASSIFICATION";
+            this.cLASSIFICATIONDataGridViewTextBoxColumn.Name = "cLASSIFICATIONDataGridViewTextBoxColumn";
+            // 
+            // eLEVEBindingSource1
+            // 
+            this.eLEVEBindingSource1.DataMember = "ELEVE";
+            this.eLEVEBindingSource1.DataSource = this.dBAgenceDataSet;
+            // 
+            // dBAgenceDataSet
+            // 
+            this.dBAgenceDataSet.DataSetName = "DBAgenceDataSet";
+            this.dBAgenceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // eLEVETableAdapter
+            // 
+            this.eLEVETableAdapter.ClearBeforeFill = true;
+            // 
+            // draft
+            // 
+            this.draft.AutoSize = true;
+            this.draft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.draft.Location = new System.Drawing.Point(811, 207);
+            this.draft.Name = "draft";
+            this.draft.Size = new System.Drawing.Size(0, 20);
+            this.draft.TabIndex = 27;
+            // 
+            // windowTitle
+            // 
+            this.windowTitle.AutoSize = true;
+            this.windowTitle.Font = new System.Drawing.Font("Cooper Black", 22.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowTitle.Location = new System.Drawing.Point(205, 16);
+            this.windowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.windowTitle.Name = "windowTitle";
+            this.windowTitle.Size = new System.Drawing.Size(300, 44);
+            this.windowTitle.TabIndex = 28;
+            this.windowTitle.Text = "Gestion Eleves";
+            // 
             // EleveShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.windowTitle);
+            this.Controls.Add(this.draft);
+            this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.nouveau);
             this.Controls.Add(this.NS);
             this.Controls.Add(this.label2);
@@ -340,15 +374,15 @@
             this.Controls.Add(this.photo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.recherche);
-            this.Controls.Add(this.dataGrid);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EleveShow";
             this.Size = new System.Drawing.Size(1177, 479);
             this.Load += new System.EventHandler(this.EleveShow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBAgenceDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,15 +390,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDELEVEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMCOMPLETDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dATEDENAISSANCEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dATEINSCRIPTIONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCOREDataGridViewTextBoxColumn;
+
         private System.Windows.Forms.BindingSource eLEVEBindingSource;
-        private DBDataSet dBDataSet;
-        private DBDataSetTableAdapters.ELEVETableAdapter eLEVETableAdapter;
+        
         private System.Windows.Forms.TextBox recherche;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox photo;
@@ -384,6 +412,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox NS;
         private System.Windows.Forms.Button nouveau;
+        private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLASSIFICATIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource eLEVEBindingSource1;
+        private DBAgenceDataSet dBAgenceDataSet;
+        private DBAgenceDataSetTableAdapters.ELEVETableAdapter eLEVETableAdapter;
+        private System.Windows.Forms.Label draft;
+        private System.Windows.Forms.Label windowTitle;
 
     }
 }

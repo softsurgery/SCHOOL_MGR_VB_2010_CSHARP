@@ -15,8 +15,12 @@ namespace GestionEleve.Eleve
         }
 
         public void AddEleve(EleveModel eleve){
-            string query = "INSERT INTO Eleve (ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_INSCRIPTION, SCORE) VALUES (?, ?, ?, ?, ?)";
-            Connection.ExecuteNonQuery(query, maxId + 1, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score);
+            string query = "INSERT INTO Eleve (ID_ELEVE, NOM_COMPLET, DATE_DE_NAISSANCE, DATE_INSCRIPTION, SCORE, CLASSIFICATION) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection.ExecuteNonQuery(query, maxId + 1, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.SCORE, eleve.CLASSIFICATION); 
+            query = "INSERT INTO INSCRIPTION (ID_ELEVE,ANNEE1) VALUES (?, ?)";
+            Connection.ExecuteNonQuery(query, maxId + 1, StaticMethods.GetYearFromDate(eleve.DATE_INSCRIPTION));
+            
+            maxId++;
         }
 
 
@@ -24,15 +28,18 @@ namespace GestionEleve.Eleve
             string query = "UPDATE Eleve SET NOM_COMPLET = ?, " +
                            "DATE_DE_NAISSANCE = ?, " +
                            "DATE_INSCRIPTION = ?, " +
-                           "SCORE = ? " +
+                           "SCORE = ?, " +
+                           "CLASSIFICATION = ?" + 
                            "WHERE ID_ELEVE = ?";
-            Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.score, eleve.ID_ELEVE);
+     
+            Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.SCORE, eleve.CLASSIFICATION, eleve.ID_ELEVE);
         }
 
-        public List<EleveModel> GetAllEleves(string key="")
+        public List<EleveModel> GetAllEleves(String key = "", int year = -1)
         {
             List<EleveModel> eleves = new List<EleveModel>();
-            string query = "SELECT * FROM Eleve WHERE NOM_COMPLET LIKE @key";
+            string query = "SELECT * FROM Eleve";
+
             using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))
             {
                 using (OleDbCommand command = new OleDbCommand(query, connection))
@@ -40,15 +47,56 @@ namespace GestionEleve.Eleve
                     try
                     {
                         connection.Open();
-                        command.Parameters.AddWithValue("@key", "%" + key + "%");
                         OleDbDataReader reader = command.ExecuteReader();
-                        while (reader.Read()){
+                        while (reader.Read())
+                        {
                             EleveModel eleve = new EleveModel(
                                 reader.GetInt16(0),
                                 reader.GetString(1),
                                 reader.GetDateTime(2).ToString("dd/MM/yyyy"),
                                 reader.GetDateTime(3).ToString("dd/MM/yyyy"),
-                                reader.GetInt32(4)
+                                reader.GetInt32(4),
+                                reader.GetString(5)
+                            );
+                            eleves.Add(eleve);
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error fetching students: " + ex.Message);
+                    }
+                }
+            }
+            return eleves;
+        }
+
+        public List<EleveModel> GetAllElevesByYear(String key = "", int year = -1)
+        {
+            List<EleveModel> eleves = new List<EleveModel>();
+            string query = "SELECT ELEVE.*" +
+                " FROM ELEVE INNER JOIN INSCRIPTION ON ELEVE.ID_ELEVE = INSCRIPTION.ID_ELEVE" +
+                " WHERE (((INSCRIPTION.ANNEE1) = @year) AND ((ELEVE.NOM_COMPLET) Like @key))";
+
+            using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))
+            {
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        command.Parameters.AddWithValue("@year", year);
+                        command.Parameters.AddWithValue("@key", "%" + key + "%"); // Add wildcards to the key
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            EleveModel eleve = new EleveModel(
+                                reader.GetInt16(0),
+                                reader.GetString(1),
+                                reader.GetDateTime(2).ToString("dd/MM/yyyy"),
+                                reader.GetDateTime(3).ToString("dd/MM/yyyy"),
+                                reader.GetInt32(4),
+                                reader.GetString(5)
                             );
                             eleves.Add(eleve);
                         }
@@ -67,6 +115,7 @@ namespace GestionEleve.Eleve
         {
             string query = "DELETE FROM Eleve WHERE ID_ELEVE = ?";
             Connection.ExecuteNonQuery(query,id);
+            maxId = 0;
         }
 
         public int GetMaxId()
