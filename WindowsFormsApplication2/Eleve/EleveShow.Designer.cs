@@ -61,6 +61,7 @@
             this.eLEVETableAdapter = new GestionEleve.DBAgenceDataSetTableAdapters.ELEVETableAdapter();
             this.draft = new System.Windows.Forms.Label();
             this.windowTitle = new System.Windows.Forms.Label();
+            this.souscrire = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -142,7 +143,7 @@
             // supprimer
             // 
             this.supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supprimer.Location = new System.Drawing.Point(945, 419);
+            this.supprimer.Location = new System.Drawing.Point(903, 419);
             this.supprimer.Name = "supprimer";
             this.supprimer.Size = new System.Drawing.Size(108, 36);
             this.supprimer.TabIndex = 10;
@@ -161,7 +162,7 @@
             // modifier
             // 
             this.modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifier.Location = new System.Drawing.Point(815, 419);
+            this.modifier.Location = new System.Drawing.Point(772, 419);
             this.modifier.Name = "modifier";
             this.modifier.Size = new System.Drawing.Size(119, 36);
             this.modifier.TabIndex = 16;
@@ -222,7 +223,7 @@
             this.Erreur.AutoSize = true;
             this.Erreur.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Erreur.ForeColor = System.Drawing.Color.Red;
-            this.Erreur.Location = new System.Drawing.Point(857, 391);
+            this.Erreur.Location = new System.Drawing.Point(780, 391);
             this.Erreur.Name = "Erreur";
             this.Erreur.Size = new System.Drawing.Size(0, 17);
             this.Erreur.TabIndex = 22;
@@ -348,10 +349,22 @@
             this.windowTitle.TabIndex = 28;
             this.windowTitle.Text = "Gestion Eleves";
             // 
+            // souscrire
+            // 
+            this.souscrire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.souscrire.Location = new System.Drawing.Point(1026, 418);
+            this.souscrire.Name = "souscrire";
+            this.souscrire.Size = new System.Drawing.Size(108, 36);
+            this.souscrire.TabIndex = 29;
+            this.souscrire.Text = "Souscrire ";
+            this.souscrire.UseVisualStyleBackColor = true;
+            this.souscrire.Click += new System.EventHandler(this.souscrire_Click);
+            // 
             // EleveShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.souscrire);
             this.Controls.Add(this.windowTitle);
             this.Controls.Add(this.draft);
             this.Controls.Add(this.dataGrid);
@@ -424,6 +437,7 @@
         private DBAgenceDataSetTableAdapters.ELEVETableAdapter eLEVETableAdapter;
         private System.Windows.Forms.Label draft;
         private System.Windows.Forms.Label windowTitle;
+        private System.Windows.Forms.Button souscrire;
 
     }
 }

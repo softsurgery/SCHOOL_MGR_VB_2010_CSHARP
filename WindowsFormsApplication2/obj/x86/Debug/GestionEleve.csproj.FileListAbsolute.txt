@@ -7,7 +7,6 @@ C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\Debug\GestionEleve.pdb
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Eleve.EleveShow.resources
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Form1.resources
-C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Instructeur.InstructeurMain.resources
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.exe
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.pdb
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Utils.RatingControl.resources
@@ -16,3 +15,5 @@ C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\bin\
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Autre.R1.resources
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Autre.R2.resources
 C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Autre.R3.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Instructeur.InstructeurShow.resources
+C:\Users\Cardinal\Desktop\GestionEcole\Application\WindowsFormsApplication2\obj\x86\Debug\GestionEleve.Autre.R4.resources

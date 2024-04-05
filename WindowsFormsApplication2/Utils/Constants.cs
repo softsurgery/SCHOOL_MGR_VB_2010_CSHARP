@@ -29,7 +29,8 @@ namespace GestionEleve.Utils
                 "Science Informatique",
                 "Economie et Gestion",
                 "Sport",
-                "Lettre"
+                "Lettre",
+                "NO SECTION"
             };
         }
 

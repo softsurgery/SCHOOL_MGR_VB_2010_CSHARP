@@ -24,14 +24,16 @@ namespace GestionEleve.Eleve
 
         public EleveShow(){
             InitializeComponent();
-
             //controller
             controller = new EleveControlleur();
+        }
 
-            //config
+        private void EleveShow_Load(object sender, EventArgs e)
+        {
+             //config
             photo.SizeMode = PictureBoxSizeMode.Zoom;
-            Transform.SetRoundedBorder(photo, 30);
-            photo.Load("C:\\user.png");
+            Transform.SetRoundedBorder(photo, 50);
+            photo.Load(@"../../Data/user.png");
 
             //config
             dob.Format = DateTimePickerFormat.Short;
@@ -41,11 +43,6 @@ namespace GestionEleve.Eleve
             dateINS.ShowUpDown = false;
 
             year = StaticMethods.ReadYearFromFile();
-            
-        }
-
-        private void EleveShow_Load(object sender, EventArgs e)
-        {
             dataGrid.AllowUserToAddRows = false;
             dataGrid.AllowUserToDeleteRows = false;
             dataGrid.ReadOnly = true;
@@ -137,10 +134,10 @@ namespace GestionEleve.Eleve
         }
 
         private void giveRate(int rate){
+            stars.Controls.Clear();
             UserControl rating = new RatingControl(rate);
-                stars.Controls.Clear();
-                stars.Controls.Add(rating);
-                rating.Show();
+            stars.Controls.Add(rating);
+            rating.Show();
         }
 
         private void supprimer_Click(object sender, EventArgs e)
@@ -259,6 +256,21 @@ namespace GestionEleve.Eleve
         private void dataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void souscrire_Click(object sender, EventArgs e)
+        {
+            if (draft.Text == "ALTER")
+            {
+                controller.inscrire(ID_ELEVE, year+1);
+                Erreur.ForeColor = colors.green;
+                Erreur.Text = "L'eleve " + NOM_COMPLET + "est souscrire sous l'annee scolaire " + year + "/" + (year + 1);
+
+            }
+            else
+            {
+                MessageBox.Show("Aucun eleve est seclectionné");
+            }
         }
 
         

@@ -125,5 +125,13 @@ namespace GestionEleve.Autre
         {
 
         }
+
+        private void exec3_Click(object sender, EventArgs e)
+        {
+            UserControl r4 = new R4(matiere1.Text);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(r4);
+            r4.Show();
+        }
     }
 }

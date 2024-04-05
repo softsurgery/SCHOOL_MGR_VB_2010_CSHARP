@@ -94,7 +94,6 @@ namespace GestionEleve.Utils
             }
             else
             {
-                Console.Write(dateString);
                 return -1;
             }
         }

@@ -19,8 +19,13 @@ namespace GestionEleve.Eleve
             Connection.ExecuteNonQuery(query, maxId + 1, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.SCORE, eleve.CLASSIFICATION); 
             query = "INSERT INTO INSCRIPTION (ID_ELEVE,ANNEE1) VALUES (?, ?)";
             Connection.ExecuteNonQuery(query, maxId + 1, StaticMethods.GetYearFromDate(eleve.DATE_INSCRIPTION));
-            
             maxId++;
+        }
+
+        public void inscrire(int id,int year)
+        {
+            string query = "INSERT INTO INSCRIPTION (ID_ELEVE,ANNEE1) VALUES (?, ?)";
+            Connection.ExecuteNonQuery(query, id,year);
         }
 
 
@@ -35,9 +40,10 @@ namespace GestionEleve.Eleve
             Connection.ExecuteNonQuery(query, eleve.NOM_COMPLET, eleve.DATE_DE_NAISSANCE, eleve.DATE_INSCRIPTION, eleve.SCORE, eleve.CLASSIFICATION, eleve.ID_ELEVE);
         }
 
-        public List<EleveModel> GetAllEleves(String key = "", int year = -1)
+        public List<EleveModel> GetAllEleves()
         {
             List<EleveModel> eleves = new List<EleveModel>();
+
             string query = "SELECT * FROM Eleve";
 
             using (OleDbConnection connection = new OleDbConnection(Connection.getConnectionString()))

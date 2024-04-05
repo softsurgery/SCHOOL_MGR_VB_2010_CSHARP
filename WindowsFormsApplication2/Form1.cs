@@ -33,17 +33,12 @@ namespace GestionEleve
             annee.Items.Clear();
             annee.Items.Add("Sélectionnez...");
             annee.SelectedIndex = 0;
-            annee.ForeColor = Color.Gray;
             annee.SelectedIndexChanged += annee_SelectedIndexChanged;
             List<AnneeModel> items = annee_controller.GetAllAnnee("");
             foreach (var item in items)
             {
                 annee.Items.Add(item.ANNEE1 + "/" + item.ANNEE2);
-                if (item.ANNEE1 == year)
-                {
-                    annee.SelectedIndex = annee.Items.Count - 1; // Set the selected index to the current item
-                    annee.ForeColor = SystemColors.WindowText; // Change the color to indicate selection
-                }
+                if (item.ANNEE1 == year) annee.SelectedIndex = annee.Items.Count - 1;
             }
         }
 
@@ -75,6 +70,7 @@ namespace GestionEleve
             UserControl eleveShow = new EleveShow();
             panel1.Controls.Add(eleveShow);
             eleveShow.Show();
+
             toggleScholarYear(true);
           
         }
@@ -89,12 +85,10 @@ namespace GestionEleve
         private void instructeurMenu_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            UserControl instructeurMain = new InstructeurMain();
-            panel1.Controls.Add(instructeurMain);
-            instructeurMain.Show();
-
+            UserControl instructeruShow = new InstructeurShow();
+            panel1.Controls.Add(instructeruShow);
+            instructeruShow.Show();
             toggleScholarYear(false);
-
         }
 
         private void autres_Click(object sender, EventArgs e)

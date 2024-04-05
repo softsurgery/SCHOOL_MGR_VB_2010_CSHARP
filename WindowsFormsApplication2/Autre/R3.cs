@@ -15,23 +15,31 @@ namespace GestionEleve.Autre
         public R3(string section, string niveau)
         {
             InitializeComponent();
-            List<MatiereModel> matieres = new List<MatiereModel>();
-            string filePath = "../../Data/NS/" + niveau + "-" + section;
-            
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
-            {
-                string[] parts = line.Split('-');
-                string nom = parts[0].Trim();
-                string coefficient = parts[1].Trim();
-                Console.Write(nom+"-");
-                Console.Write(coefficient+"\n");
-                MatiereModel matiere = new MatiereModel(nom, coefficient);
-                matieres.Add(matiere);
+            try {
+                List<MatiereModel> matieres = new List<MatiereModel>();
+                string filePath = "../../Data/NS/" + niveau + "-" + section;
+
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split('-');
+                    string nom = parts[0].Trim();
+                    string coefficient = parts[1].Trim();
+                    Console.Write(nom + "-");
+                    Console.Write(coefficient + "\n");
+                    MatiereModel matiere = new MatiereModel(nom, coefficient);
+                    matieres.Add(matiere);
+                }
+                dataGrid.DataSource = matieres;
             }
+            catch {
+                dataGrid.Visible = false;
+                erreur.Text = "Aucune Section a ce niveau";
+            }
+            
 
        
-            dataGrid.DataSource = matieres;
+           
         }
 
 

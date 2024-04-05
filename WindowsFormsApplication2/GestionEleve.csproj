@@ -74,6 +74,16 @@
     <Compile Include="Autre\R3.Designer.cs">
       <DependentUpon>R3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Autre\R4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Autre\R4.Designer.cs">
+      <DependentUpon>R4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBAgenceDataSet.cs">
+      <DependentUpon>DBAgenceDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DBAgenceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,24 +103,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Instructeur\InstructeurAdd.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Instructeur\InstructeurAdd.Designer.cs">
-      <DependentUpon>InstructeurAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Instructeur\InstructeurMain.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Instructeur\InstructeurMain.Designer.cs">
-      <DependentUpon>InstructeurMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Instructeur\InstructeurModify.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Instructeur\InstructeurModify.Designer.cs">
-      <DependentUpon>InstructeurModify.cs</DependentUpon>
-    </Compile>
+    <Compile Include="instructeurShow.cs" />
+    <Compile Include="Instructeur\InstructeurController.cs" />
+    <Compile Include="Instructeur\InstructeurModel.cs" />
     <Compile Include="Instructeur\InstructeurShow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,14 +137,17 @@
     <EmbeddedResource Include="Autre\R3.resx">
       <DependentUpon>R3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Autre\R4.resx">
+      <DependentUpon>R4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Eleve\EleveShow.resx">
       <DependentUpon>EleveShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Instructeur\InstructeurMain.resx">
-      <DependentUpon>InstructeurMain.cs</DependentUpon>
+    <EmbeddedResource Include="Instructeur\InstructeurShow.resx">
+      <DependentUpon>InstructeurShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
