@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestionEleve.Utils;
+using System.IO;
 
 namespace GestionEleve.Eleve
 {
@@ -84,8 +85,39 @@ namespace GestionEleve.Eleve
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+              if (ID_ELEVE != -1 || draft.Text == "DRAFT")
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
 
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string selectedImagePath = openFileDialog.FileName;
+                        string destinationPath = @"../../Data/PDPE/" + ID_ELEVE + ".png";
+                        if (photo.Image != null)
+                        {
+                            photo.Image.Dispose();
+                        }
+                        if (File.Exists(destinationPath))
+                        {
+                            File.Delete(destinationPath);
+                        }
+                        File.Copy(selectedImagePath, destinationPath, true);
+                        using (FileStream stream = new FileStream(destinationPath, FileMode.Open, FileAccess.Read))
+                        {
+                            photo.Image = Image.FromStream(stream);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
         }
+        
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -117,6 +149,15 @@ namespace GestionEleve.Eleve
             if (e.RowIndex >= 0){
                 DataGridViewRow clickedRow = dataGrid.Rows[e.RowIndex];
                 ID_ELEVE = (int)clickedRow.Cells[0].Value;
+                String path = "../../Data/PDPE/" + ID_ELEVE + ".png";
+                if (File.Exists(path))
+                {
+                    photo.Image = Image.FromFile(path);
+                }
+                else
+                {
+                    photo.Image = Image.FromFile("../../Data/user.png");
+                }
                 NOM_COMPLET = (String)clickedRow.Cells[1].Value;
                 nomComplet.Text = (String)NOM_COMPLET;
                 DATE_DE_NAISSANCE = (String)clickedRow.Cells[2].Value;
@@ -151,6 +192,12 @@ namespace GestionEleve.Eleve
 
                 if (result == DialogResult.Yes){
                     controller.DeleteEleve(ID_ELEVE);
+                    string imagePath = "../../DATA/PDPE/" + ID_ELEVE + ".png";
+                    if (File.Exists(imagePath))
+                    {
+                        photo.Image.Dispose();
+                        File.Delete(imagePath);
+                    }
                     clear();
                     FetchAndDisplayData();
                 }
@@ -200,10 +247,25 @@ namespace GestionEleve.Eleve
                     }
                     else {
                         controller.AddEleve(eleve);
+                        try
+                        {
+                            if (File.Exists("../../Data/PDPE/-1.png"))
+                            {
+                                File.Move("../../Data/PDPE/-1.png", "../../Data/PDPE/" + controller.GetMaxId() + ".png");
+                            }
+                            else
+                            {
+                                Console.WriteLine("File does not exist at the specified path.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error renaming file: " + ex.Message);
+                        }
                         Erreur.ForeColor = colors.green;
                         Erreur.Text = "Ajout Reusssie";
                     }
-                   FetchAndDisplayData();
+                    FetchAndDisplayData();
                     clear();
                     draft.Text = "";
                 };
@@ -224,6 +286,7 @@ namespace GestionEleve.Eleve
             dob.Text = "";
             NS.SelectedIndex = 0;
             draft.Text = "";
+            photo.Image = Image.FromFile("../../Data/user.png");
             giveRate(0);
         }
 

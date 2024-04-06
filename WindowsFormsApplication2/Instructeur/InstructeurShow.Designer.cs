@@ -51,6 +51,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.recherche = new System.Windows.Forms.TextBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.iDINSTRUCTEURDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOMCOMPLETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATEDENAISSANCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCOREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mATIEREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNSTRUCTEURBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSTRUCTEURTableAdapter = new GestionEleve.DBAgenceDataSetTableAdapters.INSTRUCTEURTableAdapter();
             this.tableAdapterManager = new GestionEleve.DBAgenceDataSetTableAdapters.TableAdapterManager();
@@ -58,12 +64,6 @@
             this.cin1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.matiere1 = new System.Windows.Forms.ComboBox();
-            this.iDINSTRUCTEURDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMCOMPLETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCOREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mATIEREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAgenceDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLEVEBindingSource)).BeginInit();
@@ -233,6 +233,7 @@
             this.photo.Size = new System.Drawing.Size(176, 170);
             this.photo.TabIndex = 32;
             this.photo.TabStop = false;
+            this.photo.Click += new System.EventHandler(this.photo_Click);
             // 
             // label1
             // 
@@ -270,6 +271,46 @@
             this.dataGrid.TabIndex = 53;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick_1);
             this.dataGrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_RowHeaderMouseClick);
+            // 
+            // iDINSTRUCTEURDataGridViewTextBoxColumn
+            // 
+            this.iDINSTRUCTEURDataGridViewTextBoxColumn.DataPropertyName = "ID_INSTRUCTEUR";
+            this.iDINSTRUCTEURDataGridViewTextBoxColumn.HeaderText = "ID_INSTRUCTEUR";
+            this.iDINSTRUCTEURDataGridViewTextBoxColumn.Name = "iDINSTRUCTEURDataGridViewTextBoxColumn";
+            this.iDINSTRUCTEURDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // cINDataGridViewTextBoxColumn
+            // 
+            this.cINDataGridViewTextBoxColumn.DataPropertyName = "CIN";
+            this.cINDataGridViewTextBoxColumn.HeaderText = "CIN";
+            this.cINDataGridViewTextBoxColumn.Name = "cINDataGridViewTextBoxColumn";
+            // 
+            // nOMCOMPLETDataGridViewTextBoxColumn
+            // 
+            this.nOMCOMPLETDataGridViewTextBoxColumn.DataPropertyName = "NOM_COMPLET";
+            this.nOMCOMPLETDataGridViewTextBoxColumn.HeaderText = "NOM_COMPLET";
+            this.nOMCOMPLETDataGridViewTextBoxColumn.Name = "nOMCOMPLETDataGridViewTextBoxColumn";
+            this.nOMCOMPLETDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dATEDENAISSANCEDataGridViewTextBoxColumn
+            // 
+            this.dATEDENAISSANCEDataGridViewTextBoxColumn.DataPropertyName = "DATE_DE_NAISSANCE";
+            this.dATEDENAISSANCEDataGridViewTextBoxColumn.HeaderText = "DATE_DE_NAISSANCE";
+            this.dATEDENAISSANCEDataGridViewTextBoxColumn.Name = "dATEDENAISSANCEDataGridViewTextBoxColumn";
+            this.dATEDENAISSANCEDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // sCOREDataGridViewTextBoxColumn
+            // 
+            this.sCOREDataGridViewTextBoxColumn.DataPropertyName = "SCORE";
+            this.sCOREDataGridViewTextBoxColumn.HeaderText = "SCORE";
+            this.sCOREDataGridViewTextBoxColumn.Name = "sCOREDataGridViewTextBoxColumn";
+            this.sCOREDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // mATIEREDataGridViewTextBoxColumn
+            // 
+            this.mATIEREDataGridViewTextBoxColumn.DataPropertyName = "MATIERE";
+            this.mATIEREDataGridViewTextBoxColumn.HeaderText = "MATIERE";
+            this.mATIEREDataGridViewTextBoxColumn.Name = "mATIEREDataGridViewTextBoxColumn";
             // 
             // iNSTRUCTEURBindingSource
             // 
@@ -325,46 +366,6 @@
             this.matiere1.Size = new System.Drawing.Size(187, 24);
             this.matiere1.TabIndex = 56;
             this.matiere1.SelectedIndexChanged += new System.EventHandler(this.matiere1_SelectedIndexChanged);
-            // 
-            // iDINSTRUCTEURDataGridViewTextBoxColumn
-            // 
-            this.iDINSTRUCTEURDataGridViewTextBoxColumn.DataPropertyName = "ID_INSTRUCTEUR";
-            this.iDINSTRUCTEURDataGridViewTextBoxColumn.HeaderText = "ID_INSTRUCTEUR";
-            this.iDINSTRUCTEURDataGridViewTextBoxColumn.Name = "iDINSTRUCTEURDataGridViewTextBoxColumn";
-            this.iDINSTRUCTEURDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // cINDataGridViewTextBoxColumn
-            // 
-            this.cINDataGridViewTextBoxColumn.DataPropertyName = "CIN";
-            this.cINDataGridViewTextBoxColumn.HeaderText = "CIN";
-            this.cINDataGridViewTextBoxColumn.Name = "cINDataGridViewTextBoxColumn";
-            // 
-            // nOMCOMPLETDataGridViewTextBoxColumn
-            // 
-            this.nOMCOMPLETDataGridViewTextBoxColumn.DataPropertyName = "NOM_COMPLET";
-            this.nOMCOMPLETDataGridViewTextBoxColumn.HeaderText = "NOM_COMPLET";
-            this.nOMCOMPLETDataGridViewTextBoxColumn.Name = "nOMCOMPLETDataGridViewTextBoxColumn";
-            this.nOMCOMPLETDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dATEDENAISSANCEDataGridViewTextBoxColumn
-            // 
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.DataPropertyName = "DATE_DE_NAISSANCE";
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.HeaderText = "DATE_DE_NAISSANCE";
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.Name = "dATEDENAISSANCEDataGridViewTextBoxColumn";
-            this.dATEDENAISSANCEDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // sCOREDataGridViewTextBoxColumn
-            // 
-            this.sCOREDataGridViewTextBoxColumn.DataPropertyName = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.HeaderText = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.Name = "sCOREDataGridViewTextBoxColumn";
-            this.sCOREDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // mATIEREDataGridViewTextBoxColumn
-            // 
-            this.mATIEREDataGridViewTextBoxColumn.DataPropertyName = "MATIERE";
-            this.mATIEREDataGridViewTextBoxColumn.HeaderText = "MATIERE";
-            this.mATIEREDataGridViewTextBoxColumn.Name = "mATIEREDataGridViewTextBoxColumn";
             // 
             // InstructeurShow
             // 

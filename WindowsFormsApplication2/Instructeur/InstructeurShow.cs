@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GestionInstructeur.Instructeur;
 using GestionEleve.Utils;
+using System.IO;
 
 namespace GestionEleve.Instructeur
 {
@@ -75,6 +76,7 @@ namespace GestionEleve.Instructeur
             dob.Text = "";
             matiere1.SelectedIndex = 0;
             draft.Text = "";
+            photo.Image = Image.FromFile("../../Data/user.png");
             giveRate(0);
         }
 
@@ -106,6 +108,14 @@ namespace GestionEleve.Instructeur
             {
                 DataGridViewRow clickedRow = dataGrid.Rows[e.RowIndex];
                 ID_INSTRUCTEUR = (int)clickedRow.Cells[0].Value;
+                String path = "../../Data/PDPI/" + ID_INSTRUCTEUR + ".png";
+                if (File.Exists(path))
+                {
+                    photo.Image = Image.FromFile(path);
+                }
+                else {
+                    photo.Image = Image.FromFile("../../Data/user.png");
+                }
                 CIN = (String)clickedRow.Cells[1].Value;
                 cin1.Text = (String)CIN;
                 NOM_COMPLET = (String)clickedRow.Cells[2].Value;
@@ -122,6 +132,7 @@ namespace GestionEleve.Instructeur
                 giveRate((int)SCORE);
                 draft.ForeColor = colors.red;
                 draft.Text = "ALTER";
+
             }
         }
 
@@ -177,9 +188,25 @@ namespace GestionEleve.Instructeur
                     else
                     {
                         controller.AddInstructeur(instructeur);
+                        try
+                        {
+                            if (File.Exists("../../Data/PDPI/-1.png"))
+                            {
+                                File.Move("../../Data/PDPI/-1.png", "../../Data/PDPI/" + controller.GetMaxId() + ".png");
+                            }
+                            else
+                            {
+                                Console.WriteLine("File does not exist at the specified path.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error renaming file: " + ex.Message);
+                        }
                         Erreur.ForeColor = colors.green;
                         Erreur.Text = "Ajout Reusssie";
                     }
+
                     FetchAndDisplayData();
                     clear();
                     draft.Text = "";
@@ -215,10 +242,52 @@ namespace GestionEleve.Instructeur
                 if (result == DialogResult.Yes)
                 {
                     controller.DeleteInstructeur(ID_INSTRUCTEUR);
+                    string imagePath = "../../DATA/PDPI/" + ID_INSTRUCTEUR + ".png";
+                    if (File.Exists(imagePath))
+                    {
+                        photo.Image.Dispose();
+                        File.Delete(imagePath);
+                    }
                     clear();
                     FetchAndDisplayData();
                 }
             }
         }
+
+        private void photo_Click(object sender, EventArgs e)
+        {
+            if (ID_INSTRUCTEUR != -1 || draft.Text == "DRAFT")
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string selectedImagePath = openFileDialog.FileName;
+                        string destinationPath = @"../../Data/PDPI/" + ID_INSTRUCTEUR + ".png";
+                        if (photo.Image != null)
+                        {
+                            photo.Image.Dispose();
+                        }
+                        if (File.Exists(destinationPath))
+                        {
+                            File.Delete(destinationPath);
+                        }
+                        File.Copy(selectedImagePath, destinationPath, true);
+                        using (FileStream stream = new FileStream(destinationPath, FileMode.Open, FileAccess.Read))
+                        {
+                            photo.Image = Image.FromStream(stream);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
     }
 }
